@@ -1,4 +1,4 @@
-import { Typography, Radio, Table, Divider, Button, Dropdown, Menu, Icon } from 'antd';
+import { Typography, Radio, Table, Divider, Button, Dropdown, Menu, Icon ,message} from 'antd';
 const { Title } = Typography;
 const axios = require('axios').default;
 import { EditPanel } from '../article/editPage'
@@ -42,6 +42,8 @@ export default class ArticleManagerPanel extends React.Component {
                     data: res.data,
                     dataSource: res.data.pageItems
                 })
+            }).catch(error=>{
+                message.error( error.response.data.message);
             })
             .finally(() => {
                 this.setState({
@@ -68,6 +70,8 @@ export default class ArticleManagerPanel extends React.Component {
                 dataSource: d.pageItems
             })
 
+        }).catch(error=>{
+            message.error( error.response.data.message);
         })
     }
 
@@ -97,6 +101,8 @@ export default class ArticleManagerPanel extends React.Component {
             this.setState({
                 editMode: true
             })
+        }).catch(error=>{
+            message.error( error.response.data.message);
         })
     }
 

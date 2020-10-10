@@ -222,7 +222,7 @@ class PageTabelPanel extends React.Component {
                              this.loadData();
                          })
                          .catch((error)=>{
-                             message.error('添加失败');
+                            message.error( error.response.data.message);
                          })
                 }}>完成添加</Button><Divider type='vertical'/></span>) : null
                 return (<span>
@@ -241,7 +241,7 @@ class PageTabelPanel extends React.Component {
                                 message.info('删除成功');
                                 this.loadData();
                             }).catch(() => {
-                            message.error('未知错误');
+                                message.error( error.response.data.message);
                         })
                     }
                 }}>删除分类</Button>
@@ -308,7 +308,10 @@ class PageTabelPanel extends React.Component {
                 this.setState({
                     data: res.data.pageItems
                 })
-            }).finally(() => {
+            }).catch(error=>{
+                message.error( error.response.data.message);
+            })
+            .finally(() => {
             this.setState({
                 loading: false
             })

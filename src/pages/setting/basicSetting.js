@@ -25,6 +25,8 @@ export default class BasicSettingPanel extends React.Component{
                 this.setState({
                     ...res.data
                 })
+            }).catch(error=>{
+                message.error( error.response.data.message);
             })
     }
 
@@ -35,7 +37,7 @@ export default class BasicSettingPanel extends React.Component{
                 message.success({ content: '保存成功', key: 'settingCommit' });
                 this.loadData();
             }).catch((error)=>{
-                message.error({ content: '保存失败', key: 'settingCommit' });
+                message.error( error.response.data.message);
             })
     }
 

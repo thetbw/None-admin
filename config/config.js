@@ -44,6 +44,14 @@ export default{
                     {
                         path:'tag',
                         component:'manager/tagManager'
+                    },
+                    {
+                        path:'user',
+                        component:'manager/userManager'
+                    },
+                    {
+                        path:'power',
+                        component:'manager/powerManager'
                     }
                 ]
             },

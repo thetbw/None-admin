@@ -3,7 +3,7 @@ const { Title } = Typography;
 const axios = require('axios').default;
 import { EditPanel } from '../article/editPage'
 import host from '../../host'
-import { Models } from '_rmc-calendar@1.1.4@rmc-calendar/lib/date/DataTypes';
+// import { Models } from '_rmc-calendar@1.1.4@rmc-calendar/lib/date/DataTypes';
 
 export default class CommentManagerPanel extends React.Component {
 
@@ -39,6 +39,8 @@ export default class CommentManagerPanel extends React.Component {
                     data: res.data,
                     dataSource: res.data.pageItems
                 })
+            }).catch(error=>{
+                message.error( error.response.data.message);
             })
             .finally(() => {
                 this.setState({
@@ -74,6 +76,8 @@ export default class CommentManagerPanel extends React.Component {
         form.append('comment_status', 1)
         axios.post(host + '/admin/api/manager/comment/switchCommentStatus', form).then(res => {
             this.deleteItem(item_id)
+        }).catch(error=>{
+            message.error( error.response.data.message);
         })
     }
 
@@ -82,6 +86,8 @@ export default class CommentManagerPanel extends React.Component {
         form.append('comment_id',item_id)
         axios.post(host + '/admin/api/manager/comment/deleteComment',form).then(res => {
             this.deleteItem(item_id);
+        }).catch(error=>{
+            message.error( error.response.data.message);
         })
     }
     handleItemSelectChange(value){

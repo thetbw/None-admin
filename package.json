@@ -12,7 +12,7 @@
   "author": "thetbw",
   "license": "MIT",
   "devDependencies": {
-    "umi": "^2.13.3",
+    "umi": "^2.13.13",
     "umi-plugin-react": "^1.15.1"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "for-editor": "^0.3.5",
     "rc-queue-anim": "^1.8.3",
     "react-dnd": "^10.0.2",
-    "react-dnd-html5-backend": "^10.0.2"
+    "react-dnd-html5-backend": "^10.0.2",
+    "yarn": "^1.22.10"
   }
 }

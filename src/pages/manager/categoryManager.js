@@ -29,6 +29,8 @@ export default class CategoryManagerPanel extends React.Component {
                 path: res.data,
                 parent_id: parent_id
             })
+        }).catch(error=>{
+            message.error( error.response.data.message);
         })
 
     }
@@ -165,6 +167,8 @@ class CategoryTablePanel extends React.Component {
                     data: res.data,
                     currentPage: p
                 })
+            }).catch(error=>{
+                message.error( error.response.data.message);
             })
             .finally(() => {
                 this.setState({

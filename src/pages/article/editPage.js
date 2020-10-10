@@ -1,5 +1,5 @@
 import { message, Button, Checkbox, Row, Col, Input, Cascader, Select } from 'antd';
-import 'easymde/dist/easymde.min.css';
+// import 'easymde/dist/easymde.min.css';
 import host from '../../host'
 
 import Editor from 'for-editor'
@@ -127,8 +127,9 @@ class EditPanel extends React.Component {
             if (this.props.switch2finsh != null)
                 this.props.switch2finsh();
         }).catch((error) => {
-            message.error({ content: '失败', key: key });
-            alert(error)
+            message.error( error.response.data.message);
+            // message.error({ content: '失败', key: key });
+            // alert(error)
             
         })
 
@@ -184,6 +185,8 @@ class EditPanel extends React.Component {
                 this.setState({
                     default_category:res.data
                 })
+            }).catch(error=>{
+                message.error( error.response.data.message);
             })
     }
 

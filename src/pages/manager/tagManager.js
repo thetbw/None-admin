@@ -40,6 +40,8 @@ class TagsPanel extends React.Component {
                 this.setState({
                     data: res.data
                 })
+            }).catch(error=>{
+                message.error( error.response.data.message);
             })
     }
 
