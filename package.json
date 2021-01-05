@@ -16,7 +16,7 @@
     "umi-plugin-react": "^1.15.1"
   },
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "for-editor": "^0.3.5",
     "rc-queue-anim": "^1.8.3",
     "react-dnd": "^10.0.2",
